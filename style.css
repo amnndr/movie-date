@@ -106,3 +106,12 @@ h1{font-size:clamp(1.8rem,6.5vw,3rem);line-height:1.15;margin:4px 0 8px}
 
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.smiski-cat{
+  width:auto;
+  height:auto;
+  display:inline-block;
+  mix-blend-mode:multiply;
+  filter:drop-shadow(0 0 12px var(--glow));
+}
+.smiski-cat.mini{max-height:58px}
+.smiski-cat.peek{position:absolute;max-height:46px;left:12%;top:-40px}
