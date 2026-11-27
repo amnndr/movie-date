@@ -1,7 +1,7 @@
 /* =====================================================
    CONFIG — edit these
    ===================================================== */
-const IG_USERNAME = 'YOUR_IG_USERNAME';       // <- swap in your Instagram handle
+const IG_USERNAME = 'am.nndr';       // <- swap in your Instagram handle
 const MOVIE = 'Avengers: Doomsday';
 const DATE_TEXT = 'Sun, 20 Dec 2026';
 const CINEMA = 'TGV Pavilion Kuala Lumpur';
