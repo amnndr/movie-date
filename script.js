@@ -228,7 +228,7 @@ function updateSummary() {
 function message() {
   return `Hi love 💚 here are my picks for our movie date!\n` +
     `🎬 ${MOVIE}\n📅 ${DATE_TEXT}\n📍 ${state.loc.name}\n🕘 ${state.show.time}\n` +
-    `💺 Seats: ${seatList().join(', ')}\nCan't wait! 🥹`;
+    `💺 Seats: ${seatList().join(', ')}\nWe jom 🥹`;
 }
 
 function copyText(text) {
