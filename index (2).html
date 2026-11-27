@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movie Date 💚</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@500;700&family=Nunito:wght@400;700;800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Smiski-inspired SVG (used everywhere as a fallback until you add your own art in /assets) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="smiski" viewBox="0 0 120 140">
+    <g fill="currentColor" stroke="#6fcf93" stroke-width="3" stroke-linejoin="round">
+      <ellipse cx="60" cy="52" rx="38" ry="36"/>
+      <path d="M32 78Q30 118 46 122L74 122Q90 118 88 78Q60 90 32 78Z"/>
+      <ellipse cx="29" cy="96" rx="9" ry="16" transform="rotate(12 29 96)"/>
+      <ellipse cx="91" cy="96" rx="9" ry="16" transform="rotate(-12 91 96)"/>
+      <ellipse cx="46" cy="126" rx="14" ry="9"/><ellipse cx="74" cy="126" rx="14" ry="9"/>
+    </g>
+    <path d="M42 54h10M68 54h10" stroke="#24493b" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="38" cy="64" r="5" fill="#ffc9d6" opacity=".8"/><circle cx="82" cy="64" r="5" fill="#ffc9d6" opacity=".8"/>
+  </symbol>
+</svg>
+
+<!-- ================= PAGE 1: the question ================= -->
+<section id="page1" class="page active">
+  <!-- Drop your art at assets/smiski-hero.png (or .gif). The SVG shows until it loads. -->
+  <div class="art hero">
+    <img src="assets/smiski-hero.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+    <svg class="smiski"><use href="#smiski"/></svg>
+  </div>
+  <p class="eyebrow">a very important question</p>
+  <h1>Which movie should we watch?</h1>
+  <p id="bubble" class="bubble" aria-live="polite">choose wisely 💚</p>
+  <div class="choices">
+    <div class="slot"><button class="pill shy" data-name="Dune">Dune</button></div>
+    <div class="slot"><button class="pill shy" data-name="Avengers">Avengers</button></div>
+    <div class="slot"><button id="bothBtn" class="pill both">Both</button></div>
+  </div>
+</section>
+
+<!-- ================= PAGE 2: movie tabs ================= -->
+<section id="page2" class="page">
+  <header class="top">
+    <svg class="smiski mini"><use href="#smiski"/></svg>
+    <h2>Our movie date</h2>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab on" role="tab" data-tab="avengers" aria-selected="true">Avengers</button>
+    <button class="tab" role="tab" data-tab="dune" aria-selected="false">Dune</button>
+  </div>
+
+  <!-- AVENGERS -->
+  <div id="tab-avengers" class="panel on">
+    <div class="info">
+      <h3>Avengers: Doomsday</h3>
+      <p id="infoLine">Fri, 18 Dec 2026</p>
+    </div>
+    <p class="label">1 · pick a location</p>
+    <div id="locs" class="shows"></div>
+
+    <p id="timeLabel" class="label" hidden>2 · pick a showtime</p>
+    <div id="shows" class="shows" hidden></div>
+
+    <div id="mapArea" hidden>
+      <p class="label">3 · pick your seats</p>
+      <div class="legend">
+        <span><i class="seat"></i>Available</span>
+        <span><i class="seat sel"></i>Selected</span>
+        <span><i class="seat sold"></i>Sold / unavailable</span>
+        <span id="twinLegend"><i class="seat twin"></i>Twin</span>
+      </div>
+      <div class="screen"><svg class="smiski peek"><use href="#smiski"/></svg><span>SCREEN</span></div>
+      <p class="hint">swipe sideways if the hall doesn't fit your screen →</p>
+      <div class="map"><div id="hall" class="hall"></div></div>
+    </div>
+
+    <div id="summary" class="card" hidden>
+      <div class="art mini-art">
+        <img src="assets/smiski-card.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <svg class="smiski"><use href="#smiski"/></svg>
+      </div>
+      <h3>Our picks 💚</h3>
+      <ul>
+        <li>🎬 <b>Avengers: Doomsday</b></li>
+        <li>📅 <span id="sDate"></span></li>
+        <li>📍 <span id="sLoc"></span></li>
+        <li>🕘 <span id="sTime"></span></li>
+        <li>💺 <span id="sSeats"></span></li>
+      </ul>
+      <div class="actions">
+        <button id="copyBtn" class="pill small">Copy My Picks</button>
+        <span class="tipwrap">
+          <button id="dmBtn" class="pill small both">Confirm &amp; DM on Instagram</button>
+          <span id="tip" class="tip" hidden>Copied! Just hit <b>Paste</b> in the chat 💚</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DUNE -->
+  <div id="tab-dune" class="panel">
+    <!-- When Dune showtimes release, replace .postit below with a seat map (see #hall in the Avengers panel). -->
+    <div id="dune-slot">
+      <div class="postit">
+        <span class="tape"></span>
+        <p>The times aren't out yet 🥺</p>
+        <p>so no showtime or seats to pick… yet! We'll choose the seats together later honeyy</p>
+        <p class="sig">AND YES we're watching BOTH movies 💚</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
