@@ -12,13 +12,13 @@ const CINEMA = 'TGV Pavilion Kuala Lumpur';
 const R = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
 
 const SHOWTIMES = [
+   { time: '12:10 AM', hall: 'Cinema 2', layout: 'hall2',
+    sold: { E:R(7,10), F:R(6,9), G:R(7,9), H:R(5,11), J:[1,2,...R(5,10)], K:[1,2,...R(5,11)],
+            L:R(7,14), M:R(6,14), N:R(6,15), P:[...R(6,13),15,16], Q:[6,7,8,...R(10,13),15,16] } },
   { time: '9:00 PM',  hall: 'Cinema 2', layout: 'hall2',
     sold: { G:[8], H:R(7,10), J:R(6,10), K:R(6,9), L:R(9,12), M:R(10,12), N:R(7,12), P:[10,11], Q:R(10,12) } },
   { time: '11:15 PM', hall: 'Cinema 3', layout: 'hall3',
     sold: { J:[7,8], Q:[4,5] } },                                  // Q4 + Q5 are twin seats
-  { time: '12:10 AM', hall: 'Cinema 2', layout: 'hall2',
-    sold: { E:R(7,10), F:R(6,9), G:R(7,9), H:R(5,11), J:[1,2,...R(5,10)], K:[1,2,...R(5,11)],
-            L:R(7,14), M:R(6,14), N:R(6,15), P:[...R(6,13),15,16], Q:[6,7,8,...R(10,13),15,16] } },
 ];
 
 /* Hall shapes: each row = [[firstCol,lastCol], ...] blocks on a 24-column grid */
@@ -102,7 +102,7 @@ const showsEl = $('#shows');
 SHOWTIMES.forEach((s, i) => {
   const b = document.createElement('button');
   b.className = 'show';
-  b.innerHTML = `<b>${s.time}</b><span>${s.hall}</span>`;
+  b.innerHTML = `<b>${s.time}</b>`;
   b.addEventListener('click', () => pickShow(i, b));
   showsEl.append(b);
 });
@@ -167,13 +167,13 @@ function updateSummary() {
   $('#tip').hidden = true;
   if (!state.picked.size) return;
   $('#sDate').textContent = DATE_TEXT;
-  $('#sTime').textContent = `${state.show.time} · ${state.show.hall} (${CINEMA})`;
+  $('#sTime').textContent = `${state.show.time} (${CINEMA})`;
   $('#sSeats').textContent = seatList().join(', ');
 }
 
 function message() {
   return `Hi love 💚 here are my picks for our movie date!\n` +
-    `🎬 ${MOVIE}\n📅 ${DATE_TEXT}\n🕘 ${state.show.time} · ${state.show.hall} (${CINEMA})\n` +
+    `🎬 ${MOVIE}\n📅 ${DATE_TEXT}\n🕘 ${state.show.time} (${CINEMA})\n` +
     `💺 Seats: ${seatList().join(', ')}\nCan't wait! 🥹`;
 }
 
