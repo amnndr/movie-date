@@ -11,27 +11,11 @@
 </head>
 <body>
 
-<!-- Smiski-inspired SVG (used everywhere as a fallback until you add your own art in /assets) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="smiski" viewBox="0 0 120 140">
-    <g fill="currentColor" stroke="#6fcf93" stroke-width="3" stroke-linejoin="round">
-      <ellipse cx="60" cy="52" rx="38" ry="36"/>
-      <path d="M32 78Q30 118 46 122L74 122Q90 118 88 78Q60 90 32 78Z"/>
-      <ellipse cx="29" cy="96" rx="9" ry="16" transform="rotate(12 29 96)"/>
-      <ellipse cx="91" cy="96" rx="9" ry="16" transform="rotate(-12 91 96)"/>
-      <ellipse cx="46" cy="126" rx="14" ry="9"/><ellipse cx="74" cy="126" rx="14" ry="9"/>
-    </g>
-    <path d="M42 54h10M68 54h10" stroke="#24493b" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="38" cy="64" r="5" fill="#ffc9d6" opacity=".8"/><circle cx="82" cy="64" r="5" fill="#ffc9d6" opacity=".8"/>
-  </symbol>
-</svg>
-
 <!-- ================= PAGE 1: the question ================= -->
 <section id="page1" class="page active">
-  <!-- Drop your art at assets/smiski-hero.png (or .gif). The SVG shows until it loads. -->
+  <!-- Drop your art at assets/smiski-hero.png (or .gif). -->
   <div class="art hero">
-    <img src="assets/smiski-hero.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
-    <svg class="smiski"><use href="#smiski"/></svg>
+    <img src="assets/smiski-hero.png" alt="Smiski hero" onerror="this.remove()">
   </div>
   <p class="eyebrow">a very important question</p>
   <h1>Which movie should we watch?</h1>
@@ -46,7 +30,7 @@
 <!-- ================= PAGE 2: movie tabs ================= -->
 <section id="page2" class="page">
   <header class="top">
-    <svg class="smiski mini"><use href="#smiski"/></svg>
+    <img src="assets/smiski-cat.png" alt="Smiski with cat" class="smiski-cat mini" onerror="this.remove()">
     <h2>Our movie date</h2>
   </header>
 
@@ -75,15 +59,14 @@
         <span><i class="seat sold"></i>Sold / unavailable</span>
         <span id="twinLegend"><i class="seat twin"></i>Twin</span>
       </div>
-      <div class="screen"><svg class="smiski peek"><use href="#smiski"/></svg><span>SCREEN</span></div>
+      <div class="screen"><img src="assets/smiski-cat.png" alt="" class="smiski-cat peek" onerror="this.remove()"><span>SCREEN</span></div>
       <p class="hint">swipe sideways if the hall doesn't fit your screen →</p>
       <div class="map"><div id="hall" class="hall"></div></div>
     </div>
 
     <div id="summary" class="card" hidden>
       <div class="art mini-art">
-        <img src="assets/smiski-card.png" alt="" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
-        <svg class="smiski"><use href="#smiski"/></svg>
+        <img src="assets/smiski-card.png" alt="Smiski picks" onerror="this.remove()">
       </div>
       <h3>Our picks 💚</h3>
       <ul>
